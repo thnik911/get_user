@@ -27,9 +27,11 @@ $listGet = executeREST(
 
 $total = count($listGet['result']);
 
-while ($count != $total) {
-    $idOfList = $listGet['result'][$count]['ID'];
-    $values = $listGet['result'][$count]['PROPERTY_107'];
+foreach ($listGet['result'] as $lists => $values)
+{
+    $idOfList = $values['ID'];
+
+    foreach ($values['PROPERTY_107'] as $value)
 
     $count++;
 
