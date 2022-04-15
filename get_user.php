@@ -8,6 +8,8 @@ $domain = '******.bitrix24.ru';
 $auth = '*********';
 $user = '1';
 
+$count = 0;
+
 $listGet = executeREST(
     'lists.element.get',
     array(
@@ -23,11 +25,15 @@ $listGet = executeREST(
     ),
     $domain, $auth, $user);
 
-foreach ($listGet['result'] as $lists => $values);
-{
-    $idOfList = $values['ID'];
+$total = count($listGet['result']);
 
-    foreach ($values['PROPERTY_107'] as $value);
+while ($count != $total) {
+    $idOfList = $listGet['result'][$count]['ID'];
+    $values = $listGet['result'][$count]['PROPERTY_107'];
+
+    $count++;
+
+    foreach ($values as $value);
 
     $userGet = executeREST(
         'user.get',
