@@ -33,10 +33,6 @@ foreach ($listGet['result'] as $lists => $values)
 
     foreach ($values['PROPERTY_107'] as $value)
 
-    $count++;
-
-    foreach ($values as $value);
-
     $userGet = executeREST(
         'user.get',
         array(
